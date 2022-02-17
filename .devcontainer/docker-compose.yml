@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web: 
+    image: node:14.17.0-buster
+    command: sleep infinity
+    working_dir: /workspace
+    user: 'node'
+    volumes:
+      - ..:/workspace:cached
+      # add local ssh config
+      - ~/.ssh:/.ssh-localhost:ro
+
+
+  nginx:
+    image: nginx
+    ports:
+      - 8080:80
+    volumes: 
+      - ..:/usr/share/nginx/html

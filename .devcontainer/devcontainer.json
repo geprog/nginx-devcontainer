@@ -1,0 +1,24 @@
+{
+    "name": "nginx-devcontainer",
+    // add compose file "docker-compose.nomount.yml" to the list below to use named volumes instead of local file system mounts
+    "dockerComposeFile": [
+      "docker-compose.yml",
+    ],
+    "service": "web",
+    "workspaceFolder": "/workspace",
+    // Copy the contents to the correct location and set permissions
+    "postCreateCommand": "mkdir -p ~/.ssh && cp -r /.ssh-localhost/* ~/.ssh && chmod 700 ~/.ssh && chmod 600 ~/.ssh/* && git config --global core.editor 'code --wait'",
+    "extensions": [
+      "eamodio.gitlens",
+      "mhutchie.git-graph",
+      "editorconfig.editorconfig",
+      "ms-vsliveshare.vsliveshare",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "ms-azuretools.vscode-docker",
+      "gitlab.gitlab-workflow",
+      "stylelint.vscode-stylelint",
+      "voorjaar.windicss-intellisense",
+    ]
+  }
+  
